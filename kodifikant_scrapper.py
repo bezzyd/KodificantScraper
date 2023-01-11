@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 from time import sleep
 
-class SanyaScraper:
+class KodificantScrapper:
 
     BASE_URL = "https://index.kodifikant.ru"
 
@@ -71,7 +71,7 @@ class SanyaScraper:
 
 
 def main() -> None:
-    scraper = SanyaScraper()
+    scraper = KodificantScrapper()
     scraper.get_info_list()
     scraper.save_result_in_file("filename.json", scraper.result)
     scraper.get_deep_info_list()
