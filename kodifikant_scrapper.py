@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 from time import sleep
 
-class KodificantScrapper:
+class KodificantScraper:
 
     BASE_URL = "https://index.kodifikant.ru"
 
@@ -43,12 +43,12 @@ class KodificantScrapper:
 
     @staticmethod
     def save_result_in_file(filename, result: list) -> None:
-        '''Create only one json file for all info about subjects federation'''
+        '''Create one json file for all info about subjects federation'''
         with open(filename, 'w', encoding='utf-8') as file:
             json.dump(result, file, indent=4, ensure_ascii=False)
 
     def get_deep_info_list(self) -> None:
-        '''Get info (post index, name and link) and create info-dicts for each 
+        '''Get info (index, name and link) and create info-dicts for each
         subject federation on site, then adds them in result list'''
         for i in range(len(self.result)):
             subject_fed_link = self.result[i]["subject_fed"]["link"]
